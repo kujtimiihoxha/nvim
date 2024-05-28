@@ -18,7 +18,6 @@ return {
   { import = "astrocommunity.completion.copilot-lua-cmp" },
   -- Packs
   { import = "astrocommunity.pack.full-dadbod" },
-  { import = "astrocommunity.pack.full-dadbod" },
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.markdown" },
   { import = "astrocommunity.pack.docker" },
@@ -30,6 +29,8 @@ return {
   { import = "astrocommunity.pack.vue" },
   { import = "astrocommunity.pack.svelte" },
   { import = "astrocommunity.pack.yaml" },
+  { import = "astrocommunity.pack.toml" },
+  { import = "astrocommunity.pack.html-css" },
   -- Git
 
   { import = "astrocommunity.git.neogit" },

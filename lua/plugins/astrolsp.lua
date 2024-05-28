@@ -54,6 +54,20 @@ return {
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
     config = {
+      vtsls = {
+        settings = {
+          typescript = {
+            preferences = {
+              importModuleSpecifier = "non-relative",
+            },
+          },
+          javascript = {
+            preferences = {
+              importModuleSpecifier = "non-relative",
+            },
+          },
+        },
+      },
       -- tsserver = {
       --   init_options = {
       --     plugins = {
@@ -96,14 +110,10 @@ return {
         {
           event = "BufWritePre",
           callback = function()
-            -- print the current buffer name
             local bufnr = vim.api.nvim_get_current_buf()
-            local bufname = vim.api.nvim_buf_get_name(bufnr)
             if vim.api.nvim_buf_get_option(bufnr, "filetype") == "typescript" then
-              vim.lsp.buf.execute_command {
-                command = "_typescript.organizeImports",
-                arguments = { bufname },
-              }
+              local cmd = require "vtsls.commands"
+              cmd.remove_unused_imports()
             end
           end,
         },
